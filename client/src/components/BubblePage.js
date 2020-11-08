@@ -13,14 +13,12 @@ const BubblePage = () => {
     axiosWithAuth()
     .get(`/colors`)
     .then((res) => {
-      console.log("color res:", res)
       setColorList(res.data)
     })
     .catch((err) => {
-      console.log("color err:", err)
     })}, [])
         console.log(colorList)
-        
+
   return (
     <>
       <ColorList colors={colorList} updateColors={setColorList} />

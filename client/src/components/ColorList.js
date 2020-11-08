@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import {useParams, useHistory} from 'react-router-dom';
@@ -38,9 +38,17 @@ const ColorList = ({ colors, updateColors }) => {
     // where is is saved right now?
   };
 
-  const deleteColor = color => {
-    // make a delete request to delete this color
-  };
+    const deleteColor = color => {
+      // make a delete request to delete this color
+      axiosWithAuth()
+        .delete(`/colors/${color.id}`)
+        .then(res => {console.log(res)
+          
+          })
+        .catch((err) => {
+          console.log(err)
+        })
+    };
 
   return (
     <div className="colors-wrap">
