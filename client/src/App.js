@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Link to="/protected">This will be protected DELETE BEFORE SUBMITION</Link>
         <Route exact path="/" component={Login} />
         {/* 
           Build a PrivateRoute component that will 
