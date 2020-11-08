@@ -25,11 +25,11 @@ const Login = () => {
       .post(`http://localhost:5000/api/login`, form)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
+
       })
       .catch((err) => {
         console.log("sad", err)
       })
-
       push('/protected');
   };
 

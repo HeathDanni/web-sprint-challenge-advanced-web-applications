@@ -43,7 +43,8 @@ const ColorList = ({ colors, updateColors }) => {
       axiosWithAuth()
         .delete(`/colors/${color.id}`)
         .then(res => {console.log(res)
-          
+          push('/')
+          push('/protected')
           })
         .catch((err) => {
           console.log(err)
