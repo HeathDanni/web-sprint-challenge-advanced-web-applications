@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import {useParams, useHistory} from 'react-router-dom';
+
 
 const initialColor = {
   color: "",
   code: { hex: "" }
 };
 
+
 const ColorList = ({ colors, updateColors }) => {
-  const {id} = useParams();
-  const {push} = useHistory();
-  console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+  
 
   const editColor = color => {
     setEditing(true);
@@ -24,24 +22,20 @@ const ColorList = ({ colors, updateColors }) => {
   const saveEdit = e => {
     e.preventDefault();
     axiosWithAuth()
-      .put(`/colors/${id}`, colorToEdit)
+      .put(`/colors/${colors.id}`, colorToEdit)
       .then((res)=> {console.log('change color res:', res)
       colors[res.data.id -1] = (res.data)
       updateColors([...colors
       ])
-      push('/protected')
      console.log(colors) 
     })
       .catch((err) => {console.log('err', err)})
   };
 
     const deleteColor = color => {
-     
       axiosWithAuth()
         .delete(`/colors/${color.id}`)
         .then(res => {console.log(res)
-          push('/')
-          push('/protected')
           })
         .catch((err) => {
           console.log(err)

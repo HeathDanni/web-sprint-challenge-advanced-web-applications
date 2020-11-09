@@ -16,3 +16,6 @@ const PrivateRoute = ({component: Component, ...rest}) => {
     };
 
 export default PrivateRoute;
+
+//creates a private route only allowing access to components with this route if a token exists and redirecting
+//to the login page if it doesn't

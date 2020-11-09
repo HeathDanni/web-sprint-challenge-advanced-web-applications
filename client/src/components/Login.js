@@ -19,6 +19,8 @@ const Login = () => {
     )
   };
 
+  //when the credentials are correct, this post request receives an JWT token and saves it to local storage
+
   const submitForm = (e) => { 
     e.preventDefault();
     axios
@@ -32,12 +34,6 @@ const Login = () => {
       })
       push('/protected');
   };
-
-  console.log('this form:', form)
-  //delete before submission
-
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
 
   return (
     <>

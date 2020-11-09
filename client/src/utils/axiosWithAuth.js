@@ -9,3 +9,5 @@ export const axiosWithAuth = () => {
                 headers: {Authorization: token}
             });
 };
+
+// axiosWithAuth allows the token to appear in the header of other axios requests so protected data can be accessed
